@@ -12,10 +12,7 @@ def get_model():
     # number of neurons and type of layers are crucial.
     # idea behind decreasing number of units per layer:
     # increase the "abstraction" in each layer...
-    hidden_layer = layers.Dense(units=512)(input_layer)
-    hidden_layer = layers.Dense(units=256)(hidden_layer)
-    hidden_layer = layers.Dense(units=128)(hidden_layer)
-    hidden_layer = layers.Dense(units=64)(hidden_layer)
+    hidden_layer = layers.Dense(units=64)(input_layer)
     hidden_layer = layers.Dense(units=32)(hidden_layer)
 
     # last layer represents output.

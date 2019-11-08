@@ -46,7 +46,7 @@ initial_weights = model.get_weights()
 model.summary()
 
 # initialize the cross validation folds api
-kfold = KFold(3, True, 1)
+kfold = KFold(6, shuffle=True, random_state=42)
 
 run_datetime = datetime.now()
 fold = 0
