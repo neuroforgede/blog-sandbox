@@ -33,7 +33,7 @@ def main():
     log_dir = path.join(dir_path, 'logs', run_name)
     print('logging to "{}"'.format(log_dir))
     tb_callback = callbacks.TensorBoard(log_dir=log_dir)
-    model.fit(features, labels, batch_size=config.BATCH_SIZE, epochs=200, validation_split=.2, shuffle=True, class_weight=class_weights, callbacks=[tb_callback])
+    model.fit(features, labels, batch_size=config.BATCH_SIZE, epochs=20000, validation_split=.2, shuffle=True, class_weight=class_weights, callbacks=[tb_callback])
     model.save('model/deepbuzz.h5')
 
 
