@@ -1,25 +1,18 @@
 # seed the random generator, for reproducible results
 from numpy import random
-random.seed(1337)
-# same for tensorflow
-import tensorflow as tf
-tf.set_random_seed(42)
+from tensorflow.compat.v1 import set_random_seed
 
 from datetime import datetime
 from os import path
-
 import numpy
-from PIL import Image
-from keras import callbacks
+from tensorflow.keras import callbacks
 from sklearn import datasets
-
 from sklearn.model_selection import KFold
-
 from digits.models.mlp import get_model
-
-from digits.util import image_to_ndarray
 from digits.config import NUM_DIGITS, MAX_FEATURE
 
+random.seed(1337)
+set_random_seed(42)
 
 # directory of this file
 module_dir = path.dirname(path.realpath(__file__))

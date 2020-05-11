@@ -1,5 +1,5 @@
 import numpy
-from keras import layers, engine
+from tensorflow.keras import layers, Model
 from sklearn import datasets
 
 from digits import config
@@ -38,14 +38,14 @@ def get_model():
     hidden_layer = layers.Flatten()(hidden_layer)
 
     # last layer represents output.
-    # activation of each neuron corresponds to the models decision of
+    # activation of each neuron corresponds to the model decision of
     # choosing that class.
     # softmax ensures that all activations summed up are equal to 1.
     # this lets one interpret that output as a probability
     output_layer = layers.Dense(units=config.NUM_DIGITS, activation='softmax')(hidden_layer)
 
     # actual creation of the model with in- and output layers
-    model = engine.Model(inputs=[input_layer], outputs=[output_layer])
+    model = Model(inputs=[input_layer], outputs=[output_layer])
 
     # transform into a trainable model by specifying the optimizing function
     # (here stochastic gradient descent),
